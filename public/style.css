@@ -66,6 +66,7 @@ html {
     background: rgba(0, 0, 0, 0.1);
     border:none;
     height: 100%;
+    color: yellow;
 }
 
 .send input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
