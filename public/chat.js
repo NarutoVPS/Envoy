@@ -26,16 +26,14 @@ socket.on('msgFromServer', data => {
 })
 
 function displayMsg(data) {
-    const div = document.createElement('article')
-    div.classList.add('message')
-    div.classList.add('is-info')
+    const div = document.createElement('div')
+    div.classList.add('chatMsg')
 
-    div.innerHTML = `                        <div class="message-header">
-    <p>${data.userName}</p>
-  </div>
-  <div class="message-body">
-    ${data.msg}
-  </div>`
+    div.innerHTML = `                    <div class="chatMsg">
+    <h1 id="userName">${data.userName}</h1>
+    <br>
+    <p>${data.msg}</p>
+</div>`
 
   chatBox.appendChild(div);
 }

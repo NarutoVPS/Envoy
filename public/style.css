@@ -2,6 +2,11 @@ html {
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
+.title {
+    text-align: center;
+    padding-top: 20px;
+}
+
 .main {
     height: 90vh;
     /* opacity: 0.6; */
@@ -29,12 +34,21 @@ html {
     padding: 30px;
 }
 
-.message-body {
-    word-wrap:break-word;
-}
-
 .message {
     max-width: 80%;
+}
+
+.chatMsg {
+    color: orange;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px 10px;
+    max-width: 100%;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+
+#userName {
+    color: yellow !important;
 }
 
 .users {
@@ -44,12 +58,52 @@ html {
 }
 
 .send {
-    /* background: blue; */
     flex: 0 0 100%;
     height: 10%;
-    /* opacity: 0.3; */
+}
+
+.send input {
+    background: rgba(0, 0, 0, 0.1);
+    border:none;
+    height: 100%;
+}
+
+.send input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: yellow;
+}
+
+.button {
+    background: rgba(0, 0, 0, 0.1);
+    border:none;
+    height: 100%;
+    color: yellow;
 }
 
 .field {
     max-width: 80%;
+    height: 100%;
+}
+
+strong {
+    color: yellow;
+}
+
+@media only screen and (max-width: 800px) {
+    .users {
+        flex: 0 0 0%;
+    }
+
+    .chatbox {
+        flex: 0 0 100%;
+    }
+
+    .send {
+        flex: 0 0 100%;
+        padding: 0 30px;
+    }
+
+    .field {
+        max-width: 100%;
+        height: 100%;
+    }
 }
