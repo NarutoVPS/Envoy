@@ -5,10 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bulma.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Envoy</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <div class="container main">
+        <div class="header">
+            <h1 class="title">Envoy</h1>
+        </div>
+        <div class="row">
+            <div class="chatbox">
+                    <article class="message is-info">
+                        <div class="message-header">
+                          <p>About Us</p>
+                        </div>
+                        <div class="message-body">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt animi, facilis laudantium eaque repudiandae optio asperiores quos cumque minus, officia at necessitatibus soluta ut odit incidunt sint blanditiis obcaecati inventore.
+                        </div>
+                      </article>
+                      <article class="message is-info">
+                        <div class="message-header">
+                          <p>About Us</p>
+                        </div>
+                        <div class="message-body">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt animi, facilis laudantium eaque repudiandae optio asperiores quos cumque minus, officia at necessitatibus soluta ut odit incidunt sint blanditiis obcaecati inventore.
+                        </div>
+                      </article>
+                      <article class="message is-info">
+                        <div class="message-header">
+                          <p>About Us</p>
+                        </div>
+                        <div class="message-body">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt animi, facilis laudantium eaque repudiandae optio asperiores quos cumque minus, officia at necessitatibus soluta ut odit incidunt sint blanditiis obcaecati inventore.
+                        </div>
+                      </article>
+            </div>
+            <div class="users"></div>
+        </div>
+        <div class="send">
+            <form class="field has-addons">
+                <input type="text" class="input" placeholder="Enter keywords..." id="msg">
+                <button class="button" type="submit" id="send-btn">Send</button>
+            </form>
+        </div>
+    </div>
 
     <script src="chat.js"></script>
 </body>
