@@ -29,8 +29,8 @@ function displayMsg(data) {
     const div = document.createElement('div')
     div.classList.add('chatMsg')
 
-    div.innerHTML = `                    <div class="chatMsg">
-    <h1 id="userName">${data.userName}</h1>
+    div.innerHTML = `<div class="chatMsg">
+    <h1 id="userName"><strong>${data.userName}</strong></h1>
     <br>
     <p>${data.msg}</p>
 </div>`
