@@ -1,0 +1,24 @@
+{
+  "name": "envoy",
+  "version": "1.0.0",
+  "description": "Chat app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NarutoVPS/Envoy.git"
+  },
+  "author": "Naruto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NarutoVPS/Envoy/issues"
+  },
+  "homepage": "https://github.com/NarutoVPS/Envoy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
