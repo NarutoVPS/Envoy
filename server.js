@@ -13,7 +13,7 @@ const io = socket(server)
 
 io.on('connection', socket => {
     // console.log("Connection Established")
-    socket.emit('msgFromServer', "Welcome to Envoy Messenger!")
+    socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT"})
 
     // socket.broadcast.emit('msgFromServer', )
 
