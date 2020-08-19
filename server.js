@@ -12,13 +12,31 @@ const server = app.listen(PORT, () => {
 const io = socket(server)
 
 io.on('connection', socket => {
-    // console.log("Connection Established")
     socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT"})
 
     // socket.broadcast.emit('msgFromServer', )
+    socket.on('newUser', userName => {
+        addUser(socket.id, userName)
+        socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT"})
+    })
 
     socket.on('msgFromUser', data => {
         // console.log(data)
         io.emit('msgFromServer', data)
     })
+
+    socket.on('disconnect', () => {
+        const userName = getUser(socket.id)
+        io.emit('msgFromServer', {msg: `${userName} has left the chat.`, userName: "BOT"})
+    })
 })
+
+users = {}
+
+function addUser(id, userName) {
+    users[id] = userName
+}
+
+function getUser(id) {
+    return users[id]
+}

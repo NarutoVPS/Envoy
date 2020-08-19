@@ -1,5 +1,3 @@
-const socket = io()
-
 const msg = document.getElementById("msg")
 const sendBtn = document.querySelector("form")
 const chatBox = document.querySelector('.chatbox')
@@ -15,6 +13,10 @@ sendBtn.addEventListener("submit", e => {
 
     sendBtn.reset()
 })
+
+const socket = io()
+
+socket.emit('newUser', userName)
 
 socket.on('msgFromServer', data => {
     // console.log(data)
