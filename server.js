@@ -43,5 +43,5 @@ function getUser(id) {
 }
 
 function getTime() {
-    return Date(moment().format()).toString().split(' ')[4]
+    return moment().format()
 }
