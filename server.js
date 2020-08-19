@@ -15,7 +15,6 @@ const io = socket(server)
 io.on('connection', socket => {
     socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT", time: getTime()})
 
-    // socket.broadcast.emit('msgFromServer', )
     socket.on('newUser', userName => {
         addUser(socket.id, userName)
         socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})

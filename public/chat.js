@@ -1,17 +1,15 @@
 const msg = document.getElementById("msg")
-const sendBtn = document.querySelector("form")
+const form = document.querySelector("form")
 const chatBox = document.querySelector('.chatbox')
 const userName = prompt("Enter userName")
 
-sendBtn.addEventListener("submit", e => {
+form.addEventListener("submit", e => {
     e.preventDefault()
     const data = {
         msg: msg.value,
         userName: userName
     }
     socket.emit('msgFromUser', data)
-
-    sendBtn.reset()
 })
 
 const socket = io()
