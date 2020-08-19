@@ -10,6 +10,11 @@ const server = app.listen(8080, () => {
 
 const io = socket(server)
 
-io.on('connection', () => {
-    console.log("Connection Established")
+io.on('connection', socket => {
+    // console.log("Connection Established")
+
+    socket.on('msgFromUser', data => {
+        // console.log(data)
+        io.emit('msgFromServer', data)
+    })
 })
