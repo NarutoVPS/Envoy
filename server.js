@@ -1,17 +1,21 @@
 const express = require('express')
 const app = express()
 const socket = require('socket.io')
+const PORT = process.env.PORT || 8080
 
 app.use(express.static("public"))
 
-const server = app.listen(8080, () => {
-    console.log("Server Started")
+const server = app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`)
 })
 
 const io = socket(server)
 
 io.on('connection', socket => {
     // console.log("Connection Established")
+    socket.emit('msgFromServer', "Welcome to Envoy Messenger!")
+
+    // socket.broadcast.emit('msgFromServer', )
 
     socket.on('msgFromUser', data => {
         // console.log(data)

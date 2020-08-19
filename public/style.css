@@ -29,12 +29,16 @@ html {
     padding: 30px;
 }
 
+.message-body {
+    word-wrap:break-word;
+}
+
 .message {
     max-width: 80%;
 }
 
 .users {
-    background: pink;
+    background: rgba(0, 0, 0, 0.1);
     flex: 0 0 20%;
     height: 100%;
 }
