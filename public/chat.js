@@ -1,6 +1,7 @@
 const msg = document.getElementById("msg")
 const form = document.querySelector("form")
 const chatBox = document.querySelector('.chatbox')
+const activeUsers = document.querySelector('.activeUsers')
 const userName = prompt("Enter userName")
 
 form.addEventListener("submit", e => {
@@ -22,6 +23,10 @@ socket.on('msgFromServer', data => {
     chatBox.scrollTop = chatBox.scrollHeight;
 })
 
+socket.on('updateActiveUser', data => {
+    addActiveUser(data)
+})
+
 function displayMsg(data) {
     const div = document.createElement('div')
     div.classList.add('chatMsg')
@@ -31,4 +36,14 @@ function displayMsg(data) {
     <p>${data.msg}</p>`
 
   chatBox.appendChild(div);
+}
+
+function addActiveUser(data) {
+    const li = document.createElement('li')
+    li.innerHTML = ""
+    for (let eachUser in data) {
+        li.innerHTML += `<li> <img src="online.png" class="online-logo"> ${data[eachUser]}</li>`
+    }
+    activeUsers.innerHTML = ''
+    activeUsers.appendChild(li)
 }
