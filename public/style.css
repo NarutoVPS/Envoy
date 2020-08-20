@@ -2,6 +2,11 @@ html {
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .title {
     text-align: center;
     padding-top: 20px;
@@ -9,7 +14,6 @@ html {
 
 .main {
     height: 90vh;
-    /* opacity: 0.6; */
     background: rgba(0, 0, 0, 0.1);
     margin: 5vh auto;
 }
@@ -55,12 +59,22 @@ html {
     background: rgba(0, 0, 0, 0.1);
     flex: 0 0 20%;
     height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .activeUsers {
     list-style: none;
     padding: 10px 30px;
     font-size: 20px;
+    height: 100%;
+    overflow:scroll;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+li {
+    max-width: 100%;
 }
 
 .online-logo {
@@ -99,6 +113,10 @@ strong {
     color: yellow;
 }
 
+::-webkit-scrollbar {
+    opacity: 0.1;
+}
+
 @media only screen and (max-width: 800px) {
     .activeUsers {
         padding: 10px 5px;
@@ -107,5 +125,22 @@ strong {
 
     .online-logo {
         max-width: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .title {
+        text-align: center;
+        padding-top: 15px;
+        font-size: 125%;
+    }
+
+    .chatMsg {
+        font-size: small;
+    }
+
+    .activeUsers {
+        padding: 10px 5px;
+        font-size: 13px;
     }
 }
