@@ -23,7 +23,7 @@ html {
 
 .row {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     height: 80%;
 }
 
@@ -100,21 +100,12 @@ strong {
 }
 
 @media only screen and (max-width: 800px) {
-    .users {
-        flex: 0 0 0%;
+    .activeUsers {
+        padding: 10px 5px;
+        font-size: 15px;
     }
 
-    .chatbox {
-        flex: 0 0 100%;
-    }
-
-    .send {
-        flex: 0 0 100%;
-        padding: 0 30px;
-    }
-
-    .field {
-        max-width: 100%;
-        height: 100%;
+    .online-logo {
+        max-width: 10px;
     }
 }
