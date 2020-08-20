@@ -10,6 +10,7 @@ form.addEventListener("submit", e => {
         userName: userName
     }
     socket.emit('msgFromUser', data)
+    form.reset()
 })
 
 const socket = io()
