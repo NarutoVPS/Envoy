@@ -18,6 +18,8 @@ io.on('connection', socket => {
     socket.on('newUser', userName => {
         addUser(socket.id, userName)
         socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
+
+        io.emit('updateActiveUser', users)
     })
 
     socket.on('msgFromUser', data => {
@@ -27,7 +29,10 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
         const userName = getUser(socket.id)
+        delete users[socket.id]
+        
         io.emit('msgFromServer', {msg: `${userName} has left the chat.`, userName: "BOT", time: getTime()})
+        io.emit('updateActiveUser', users)
     })
 })
 
@@ -39,6 +44,14 @@ function addUser(id, userName) {
 
 function getUser(id) {
     return users[id]
+}
+
+function getCurrentUser(id) {
+    for (let each in users) {
+        if (each === id) {
+            return users[id]
+        }
+    }
 }
 
 function getTime() {
