@@ -32,14 +32,16 @@ socket.on('updateActiveUser', data => {
 })
 
 function displayMsg(data) {
-    const div = document.createElement('div')
-    div.classList.add('chatMsg')
-
-    div.innerHTML = `<h1 id="userName"><strong>${data.userName} ${Date(data.time).toString().split(' ')[4]}</strong></h1>
-    <br>
-    <p>${data.msg}</p>`
-
-  chatBox.appendChild(div);
+    if (typeof data.userName !== 'undefined') {
+        const div = document.createElement('div')
+        div.classList.add('chatMsg')
+    
+        div.innerHTML = `<h1 id="userName"><strong>${data.userName} ${Date(data.time).toString().split(' ')[4]}</strong></h1>
+        <br>
+        <p>${data.msg}</p>`
+    
+      chatBox.appendChild(div);
+    }
 }
 
 function addActiveUser(data) {

@@ -135,6 +135,16 @@ strong {
     transform: translate(-50%, -50%);
 }
 
+.welcome input {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: yellow;
+}
+
+.welcome input::placeholder {
+    color: rgb(165, 159, 159);
+}
+
 #enter-btn {
     width: 100%;
     margin-top: 20px;
