@@ -50,6 +50,7 @@ html, body {
     max-width: 100%;
     border-radius: 7px;
     margin-top: 20px;
+    overflow-x: hidden;
 }
 
 #userName {
