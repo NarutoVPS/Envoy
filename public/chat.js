@@ -2,6 +2,7 @@ const msg = document.getElementById("msg")
 const form = document.querySelector("form")
 const chatBox = document.querySelector('.chatbox')
 const activeUsers = document.querySelector('.activeUsers')
+const tone = document.getElementById("myAudio"); 
 const {userName} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 })
@@ -41,6 +42,7 @@ function displayMsg(data) {
         <p>${data.msg}</p>`
     
       chatBox.appendChild(div);
+      playAudio()
     }
 }
 
@@ -52,4 +54,8 @@ function addActiveUser(data) {
     }
     activeUsers.innerHTML = ''
     activeUsers.appendChild(li)
+}
+
+function playAudio() { 
+    tone.play(); 
 }
