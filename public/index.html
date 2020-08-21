@@ -3,42 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bulma.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./bulma.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Envoy</title>
 </head>
 <body>
-    <div class="container main">
-        <div class="header">
-            <h1 class="title">Envoy Messenger</h1>
-        </div>
-        <div class="row">
-            <div class="chatbox">
-                <!-- Users msg goes here -->
-                    <!-- <div class="chatMsg">
-                        <h1 id="userName"><strong>USER</strong></h1>
-                        <br>
-                        <p>Here is some msg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt animi, facilis laudantium eaque repudiandae optio asperiores quos cumque minus, officia at necessitatibus soluta ut odit incidunt sint blanditiis obcaecati inventore.</p>
-                    </div> -->
-            </div>
-            <div class="users">
-                <ul class="activeUsers">
-                    <!-- <li> <img src="online.png" class="online-logo"> Naruto</li> -->
-                </ul>
-            </div>
-        </div>
-        <div class="send">
-            <form class="field has-addons">
-                <input type="text" class="input" placeholder="Enter message..." id="msg">
-                <button class="button" type="submit" id="send-btn">Send</button>
+    <div class="container2">
+        <div class="welcome center">
+            <form action="chat.html">
+                <input type="text" class="input is-success" placeholder="Enter UserName" name="userName" required>
+                <button type="submit" class="button" id="enter-btn">Enter</button>
             </form>
         </div>
     </div>
-
-    <script src="chat.js"></script>
 </body>
 </html>
