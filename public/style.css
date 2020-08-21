@@ -9,22 +9,14 @@ html, body {
 }
 
 .title {
+    color: rgba(54, 54, 54, 0.7);
     text-align: center;
-    padding-top: 20px;
 }
 
 .main {
     height: 90vh;
     background: rgba(0, 0, 0, 0.1);
-    /* margin-bottom: 5vh; */
 }
-
-/* .header {
-    background: rgba(0, 0, 0, 0.1);
-    height: 10%;
-    flex: 0 0 100%;
-    color: black;
-} */
 
 .row {
     display: flex;
@@ -162,12 +154,6 @@ strong {
 }
 
 @media only screen and (max-width: 400px) {
-    .title {
-        text-align: center;
-        padding-top: 15px;
-        font-size: 125%;
-    }
-
     .chatMsg {
         font-size: small;
     }
