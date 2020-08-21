@@ -2,7 +2,11 @@ const msg = document.getElementById("msg")
 const form = document.querySelector("form")
 const chatBox = document.querySelector('.chatbox')
 const activeUsers = document.querySelector('.activeUsers')
-const userName = prompt("Enter userName")
+const {userName} = Qs.parse(location.search, {
+    ignoreQueryPrefix: true
+})
+
+console.log(userName)
 
 form.addEventListener("submit", e => {
     e.preventDefault()
