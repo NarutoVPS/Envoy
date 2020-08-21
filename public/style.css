@@ -5,6 +5,7 @@ html {
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .title {
@@ -115,6 +116,28 @@ strong {
 
 ::-webkit-scrollbar {
     opacity: 0.1;
+}
+
+
+/* landing Page */
+
+.container2 {
+    height: 100vh;
+    position: relative;
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#enter-btn {
+    width: 100%;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 800px) {
