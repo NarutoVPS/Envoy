@@ -70,7 +70,6 @@ html, body {
     padding: 10px 30px;
     font-size: 20px;
     height: 100%;
-    overflow:scroll;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
