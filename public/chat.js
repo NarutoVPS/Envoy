@@ -42,7 +42,6 @@ function displayMsg(data) {
 }
 
 function addActiveUser(data) {
-    console.log("here")
     const li = document.createElement('li')
     li.innerHTML = ""
     for (let eachUser in data) {
