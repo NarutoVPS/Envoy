@@ -16,20 +16,20 @@ html, body {
 .main {
     height: 90vh;
     background: rgba(0, 0, 0, 0.1);
-    margin: 5vh auto;
+    /* margin-bottom: 5vh; */
 }
 
-.header {
+/* .header {
     background: rgba(0, 0, 0, 0.1);
     height: 10%;
     flex: 0 0 100%;
     color: black;
-}
+} */
 
 .row {
     display: flex;
     flex-flow: row nowrap;
-    height: 80%;
+    height: 90%;
 }
 
 .chatbox {
