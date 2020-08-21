@@ -6,22 +6,15 @@ const tone = document.getElementById("myAudio");
 const {userName} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 })
-
-console.log(userName)
-
-form.addEventListener("submit", e => {
-    e.preventDefault()
-    const data = {
-        msg: msg.value,
-        userName: userName
-    }
-    socket.emit('msgFromUser', data)
-    form.reset()
-})
+var currentUserId = ''
 
 const socket = io()
 
 socket.emit('newUser', userName)
+
+socket.on('userId', id => {
+    currentUserId = id;
+})
 
 socket.on('msgFromServer', data => {
     displayMsg(data)
@@ -42,11 +35,14 @@ function displayMsg(data) {
         <p>${data.msg}</p>`
     
       chatBox.appendChild(div);
-      playAudio()
+      if (currentUserId !== data.id) {
+        playAudio()
+      }
     }
 }
 
 function addActiveUser(data) {
+    console.log("here")
     const li = document.createElement('li')
     li.innerHTML = ""
     for (let eachUser in data) {
@@ -59,3 +55,14 @@ function addActiveUser(data) {
 function playAudio() { 
     tone.play(); 
 }
+
+form.addEventListener("submit", e => {
+    e.preventDefault()
+    const data = {
+        msg: msg.value,
+        userName: userName,
+        id: currentUserId
+    }
+    socket.emit('msgFromUser', data)
+    form.reset()
+})

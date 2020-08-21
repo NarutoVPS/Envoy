@@ -14,6 +14,7 @@ const io = socket(server)
 
 io.on('connection', socket => {
     socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT", time: getTime()})
+    socket.emit('userId', socket.id)
 
     socket.on('newUser', userName => {
         addUser(socket.id, userName)
