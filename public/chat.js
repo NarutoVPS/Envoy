@@ -29,10 +29,11 @@ function displayMsg(data) {
     if (data.userName !== 'undefined' && data.msg !== "") {
         const div = document.createElement('div')
         div.classList.add('chatMsg')
-    
-        div.innerHTML = `<div id="userName">${data.userName} <div class="time">${Date(data.time).toString().split(' ')[4]}</div></div>
+        const tempDiv = document.createElement('div')
+
+        div.innerHTML = `<div id="userName">${tempDiv.textContent = data.userName} <div class="time"> ${tempDiv.textContent = Date(data.time).toString().split(' ')[4]}</div></div>
         <br>
-        <div class="message">${data.msg}</div>`
+        <div class="message">${tempDiv.textContent = data.msg}</div>`
     
       chatBox.appendChild(div);
       if (currentUserId !== data.id) {
