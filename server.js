@@ -21,6 +21,9 @@ io.on('connection', socket => {
         socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
 
         io.emit('updateActiveUser', users)
+        if (Object.keys(users).length === 2) {
+            socket.emit('msgFromServer', {msg: "Looks like you are alone. \nInvite some friends to chat 😉", userName: "BOT", time: getTime()})
+        }
     })
 
     socket.on('msgFromUser', data => {
