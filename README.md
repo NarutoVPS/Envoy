@@ -7,7 +7,7 @@
 ## Table of Contents
 
 - [Features](#features)
-- [How To Use](#howto)
+- [How To Use](#howtouse)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -19,7 +19,7 @@
  
 ![](https://i.imgur.com/Mala7qw.gif)
 
-## How to use
+## How To Use
 
 > Make sure you have node installed in your system.
 > Clone the repository, open terminal in the diretory and type the following command
