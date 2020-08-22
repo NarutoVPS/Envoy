@@ -33,7 +33,7 @@ function displayMsg(data) {
         div.classList.add('chatMsg')
         div.innerHTML = `<div id="userName">${data.userName} <div class="time">${(data.time).toString()}</div></div>
         <br>
-        <div class="message">${tempDiv.textContent = data.msg}</div>`
+        <div class="message">${data.msg}</div>`
     
       chatBox.appendChild(div);
       if (currentUserId !== data.id) {
