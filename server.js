@@ -3,6 +3,7 @@ const app = express()
 const socket = require('socket.io')
 const PORT = process.env.PORT || 8080
 const moment = require('moment')
+const xss = require('xss')
 
 app.use(express.static("public"))
 
@@ -17,7 +18,7 @@ io.on('connection', socket => {
     socket.emit('userId', socket.id)
 
     socket.on('newUser', userName => {
-        addUser(socket.id, userName)
+        addUser(socket.id, xss(userName))
         socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
 
         io.emit('updateActiveUser', users)
@@ -28,6 +29,7 @@ io.on('connection', socket => {
 
     socket.on('msgFromUser', data => {
         data["time"] = getTime()
+        data['msg'] = xss(data.msg)
         io.emit('msgFromServer', data)
     })
 
