@@ -43,6 +43,12 @@ html, body {
     height: 90%;
 }
 
+@media (max-width: 640px) {
+    .row {
+        display: block;
+    }
+}
+
 .chatbox {
     flex: 0 0 80%;
     height: 100%;
@@ -52,7 +58,13 @@ html, body {
 }
 
 .message {
-    max-width: 80%;
+    max-width: 100%;
+}
+
+@media (max-width: 640px) {
+    .message {
+        width: 100%;
+    }
 }
 
 .chatMsg {
@@ -63,6 +75,12 @@ html, body {
     border-radius: 7px;
     margin-top: 20px;
     overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+    .chatMsg {
+        width: 100%;
+    }
 }
 
 #userName {
@@ -76,21 +94,27 @@ html, body {
     flex: 0 0 20%;
     height: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+}
+
+@media (max-width: 640px) {
+    .users {
+        display: none;
+    }
 }
 
 .time {
     margin-left: 10px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50px;
-    padding: 2px;
-    width: 100px;
+    padding: 2px 8px 2px 8px;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .message {
@@ -139,8 +163,28 @@ li {
 }
 
 .send {
-    flex: 0 0 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     height: 10%;
+    width: 79%;
+    background-color: transparent;
+}
+
+@media (max-width: 320px) {
+    .send {
+        width: 100%;
+        padding-right: 32px;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .send {
+        padding-bottom: 12px;
+    }
 }
 
 .send input {
@@ -155,6 +199,7 @@ li {
 }
 
 .button {
+    margin-left: 2px;
     background: rgba(0, 0, 0, 0.1);
     border:none;
     height: 100%;
@@ -167,8 +212,14 @@ li {
 }
 
 .field {
-    max-width: 80%;
+    width: 100%;
     height: 100%;
+}
+
+@media (max-width: 640px) {
+    .field {
+        width: 100%;
+    }
 }
 
 strong {

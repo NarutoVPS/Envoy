@@ -59,5 +59,5 @@ function getCurrentUser(id) {
 }
 
 function getTime() {
-    return moment().format()
+    return moment().calendar()
 }
