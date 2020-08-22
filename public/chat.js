@@ -26,7 +26,7 @@ socket.on('updateActiveUser', data => {
 })
 
 function displayMsg(data) {
-    if (typeof data.userName !== 'undefined') {
+    if (data.userName !== 'undefined') {
         const div = document.createElement('div')
         div.classList.add('chatMsg')
     
