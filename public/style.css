@@ -94,6 +94,7 @@ html, body {
     font-weight: 400;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5px;
+    max-width: 80%;
     word-wrap:break-word;
 }
 
