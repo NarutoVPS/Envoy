@@ -196,6 +196,11 @@ strong {
     transform: translate(-50%, -50%);
 }
 
+.welcome h1 {
+    width: 100%;
+    padding: 7px 0px;
+}
+
 .welcome input {
     background: rgba(0, 0, 0, 0.1);
     border: none;
