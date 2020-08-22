@@ -7,7 +7,7 @@
 ## Table of Contents
 
 - [Features](#features)
-- [How To Use](#howtouse)
+- [How To Use](#how-to-use)
 - [Contributing](#contributing)
 - [License](#license)
 
