@@ -12,7 +12,9 @@
     <title>Envoy</title>
 </head>
 <body>
-    <h1 class="title">Envoy Messenger</h1>
+    <div class="title-wrapper">
+        <div class="title">Envoy Messenger</div>
+    </div>
     <div class="container main">
         <div class="row">
             <div class="chatbox">
@@ -32,7 +34,9 @@
         <div class="send">
             <form class="field has-addons" autocomplete="off">
                 <input type="text" class="input" placeholder="Enter message..." id="msg">
-                <button class="button" type="submit" id="send-btn">Send</button>
+                <button class="button" type="submit" id="send-btn">
+                    <svg class="send-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 10L0 20V0zm0 8v4l10-2L0 8z"/></svg>
+                </button>
             </form>
         </div>
     </div>

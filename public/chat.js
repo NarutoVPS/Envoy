@@ -30,9 +30,9 @@ function displayMsg(data) {
         const div = document.createElement('div')
         div.classList.add('chatMsg')
     
-        div.innerHTML = `<h1 id="userName"><strong>${data.userName} ${Date(data.time).toString().split(' ')[4]}</strong></h1>
+        div.innerHTML = `<div id="userName">${data.userName} <div class="time">${Date(data.time).toString().split(' ')[4]}</div></div>
         <br>
-        <p>${data.msg}</p>`
+        <div class="message">${data.msg}</div>`
     
       chatBox.appendChild(div);
       if (currentUserId !== data.id) {
@@ -45,7 +45,8 @@ function addActiveUser(data) {
     const li = document.createElement('li')
     li.innerHTML = ""
     for (let eachUser in data) {
-        li.innerHTML += `<li> <img src="online.png" class="online-logo"> ${data[eachUser]}</li>`
+        li.innerHTML += `
+        <div class="user-slot"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M17 11v3l-3-3H8a2 2 0 01-2-2V2c0-1.1.9-2 2-2h10a2 2 0 012 2v7a2 2 0 01-2 2h-1zm-3 2v2a2 2 0 01-2 2H6l-3 3v-3H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h2v3a4 4 0 004 4h6z"/></svg><div class="my-user">${data[eachUser]}</div></div>`
     }
     activeUsers.innerHTML = ''
     activeUsers.appendChild(li)
