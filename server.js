@@ -37,7 +37,7 @@ io.on('connection', socket => {
     })
 })
 
-users = {}
+users = {69: "BOT"}
 
 function addUser(id, userName) {
     users[id] = userName
