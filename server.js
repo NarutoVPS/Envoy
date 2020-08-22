@@ -22,7 +22,7 @@ io.on('connection', socket => {
 
         io.emit('updateActiveUser', users)
         if (Object.keys(users).length === 2) {
-            socket.emit('msgFromServer', {msg: "Looks like you are alone. \nInvite some friends to chat 😉", userName: "BOT", time: getTime()})
+            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat 😉", userName: "BOT", time: getTime()})
         }
     })
 
