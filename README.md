@@ -1,4 +1,4 @@
-![](https://i.imgur.com/ZMNcn7t.gif)
+![](https://i.imgur.com/JICAD4U.gif)
 
 # Envoy [(Live Demo)](https://narutovps-envoy.herokuapp.com/)
 
@@ -17,7 +17,7 @@
  - Shows status of other users (joined, online or left)
  - Super easy to use
  
-![](https://i.imgur.com/Mala7qw.gif)
+![](https://i.imgur.com/v3oOxRv.gif)
 
 ## How To Use
 
