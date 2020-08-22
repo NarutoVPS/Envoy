@@ -64,9 +64,33 @@ html, body {
     border-radius: 4px;
 }
 
-.mobile {
-    display: none;
+@media (min-width: 640px) {
+    .mobile {
+        display: none;
+    }
+    
+    .mobile-users {
+        display: none;
+    }
+    
+    .users-menu {
+        display: none;
+    }
+    
+    .user-tag {
+        display: none;
+    }
+    
+    .users-logo {
+        display: none;
+    }
+    
+    .user-name {
+        display: none;
+    }
 }
+
+
 
 @media (max-width: 640px) {
     .mobile {
