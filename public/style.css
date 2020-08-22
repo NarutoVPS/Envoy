@@ -136,6 +136,7 @@ li {
     color: white;
     text-overflow: ellipsis;
     font-size: 16px;
+    overflow: hidden;
 }
 
 .send {
