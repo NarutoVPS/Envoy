@@ -45,7 +45,12 @@ io.on('connection', socket => {
 users = {69: "BOT"}
 
 function addUser(id, userName) {
-    users[id] = userName
+    if (userName.trim() === "BOT" || userName.trim() === "") {
+        users[id] = id;
+    }
+    else {
+        users[id] = userName
+    }
 }
 
 function getUser(id) {
