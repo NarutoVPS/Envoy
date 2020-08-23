@@ -45,10 +45,17 @@ function displayMsg(data) {
 function addActiveUser(data) {
     const li = document.createElement('li')
     const tempDiv = document.createElement('div')
+    let userName = ""
     li.innerHTML = ""
     for (let eachUser in data) {
+        if (data[eachUser].trim() === "" || data[eachUser].trim() === "BOT" && eachUser !== "69") {
+            userName = eachUser
+        }
+        else {
+            userName = tempDiv.textContent = data[eachUser]
+        }
         li.innerHTML += `
-        <div class="user-slot"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M17 11v3l-3-3H8a2 2 0 01-2-2V2c0-1.1.9-2 2-2h10a2 2 0 012 2v7a2 2 0 01-2 2h-1zm-3 2v2a2 2 0 01-2 2H6l-3 3v-3H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h2v3a4 4 0 004 4h6z"/></svg><div class="my-user">${tempDiv.textContent = data[eachUser]}</div></div>`
+        <div class="user-slot"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M17 11v3l-3-3H8a2 2 0 01-2-2V2c0-1.1.9-2 2-2h10a2 2 0 012 2v7a2 2 0 01-2 2h-1zm-3 2v2a2 2 0 01-2 2H6l-3 3v-3H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h2v3a4 4 0 004 4h6z"/></svg><div class="my-user">${userName}</div></div>`
     }
     activeUsers.innerHTML = ''
     activeUsers.appendChild(li)
