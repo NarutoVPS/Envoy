@@ -1,10 +1,17 @@
 html {
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
     height: 100vh;
 }
 
@@ -43,6 +50,12 @@ html, body {
     height: 90%;
 }
 
+@media (max-width: 640px) {
+    .row {
+        display: block;
+    }
+}
+
 .chatbox {
     flex: 0 0 80%;
     height: 100%;
@@ -51,14 +64,111 @@ html, body {
     border-radius: 4px;
 }
 
+@media (min-width: 640px) {
+    .mobile {
+        display: none;
+    }
+    
+    .mobile-users {
+        display: none;
+    }
+    
+    .users-menu {
+        display: none;
+    }
+    
+    .user-tag {
+        display: none;
+    }
+    
+    .users-logo {
+        display: none;
+    }
+    
+    .user-name {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 640px) {
+    .mobile {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .mobile-users {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 2px 8px 2px 8px;
+        border-radius: 4px;
+        color: greenyellow;
+        width: fit-content;
+        font-size: 14px;
+        border: none;
+    }
+
+    .users-menu {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 10px 10px 1px 10px;
+        width: 100%;
+        border-radius: 7px;
+        margin-bottom: 20px;
+        height: fit-content;
+    }
+
+    .user-tag {
+        background: rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        margin-bottom: 12px;
+        font-size: 14px;
+        border-radius: 4px;
+        width: 100%;
+        padding: 5px 12px 5px 12px;
+    }
+
+    .users-logo {
+        fill: greenyellow;
+        height: 18px;
+    }
+
+    .user-name {
+        color: white;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+}
+
+.message {
+    max-width: 100%;
+}
+
+@media (max-width: 640px) {
+    .message {
+        width: 100%;
+    }
+}
+
 .chatMsg {
     color: orange;
     background: rgba(0, 0, 0, 0.1);
     padding: 10px 10px;
-    max-width: 100%;
+    width: 100%;
     border-radius: 7px;
-    margin-top: 20px;
-    overflow-x: hidden;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+
+@media (max-width: 640px) {
+    .chatMsg {
+        width: 100%;
+    }
 }
 
 #userName {
@@ -72,21 +182,27 @@ html, body {
     flex: 0 0 20%;
     height: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+}
+
+@media (max-width: 640px) {
+    .users {
+        display: none;
+    }
 }
 
 .time {
     margin-left: 10px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50px;
-    padding: 2px;
-    width: 100px;
+    padding: 2px 8px 2px 8px;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     color: white;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .message {
@@ -94,8 +210,8 @@ html, body {
     font-weight: 400;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5px;
-    max-width: 80%;
-    word-wrap:break-word;
+    height: fit-content;
+    overflow-wrap: break-word;
 }
 
 .activeUsers {
@@ -138,8 +254,43 @@ li {
 }
 
 .send {
-    flex: 0 0 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     height: 10%;
+    width: 100%;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (max-width: 320px) {
+    .send {
+        width: 100%;
+        margin-right: 30px;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 12px;
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 640px) {
+    .send {
+        padding-bottom: 12px;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .send input {
@@ -154,6 +305,7 @@ li {
 }
 
 .button {
+    margin-left: 2px;
     background: rgba(0, 0, 0, 0.1);
     border:none;
     height: 100%;
@@ -166,8 +318,20 @@ li {
 }
 
 .field {
-    max-width: 80%;
+    width: 79%;
     height: 100%;
+}
+
+@media (max-width: 640px) {
+    .field {
+        width: 90%;
+    }
+}
+
+@media (max-width: 320px) {
+    .field {
+        width: 65%;
+    }
 }
 
 strong {
