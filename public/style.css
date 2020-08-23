@@ -151,12 +151,12 @@ html, body {
 }
 
 .message {
-    max-width: 100%;
+    max-width: 80%;
 }
 
 @media (max-width: 640px) {
     .message {
-        width: 100%;
+        max-width: 100%;
     }
 }
 
