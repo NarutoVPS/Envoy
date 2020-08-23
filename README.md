@@ -51,9 +51,13 @@ http://localhost:8080/
 
 ### Step 2
 
+- ⛓ Create a new branch with meaningful name 
+
+## Step 3
+
 - **Do your Stuff!** 🔨🔨🔨
 
-### Step 3
+### Step 4
 
 - 🔃 Create a new pull request 
 
