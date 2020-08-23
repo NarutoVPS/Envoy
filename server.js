@@ -18,7 +18,7 @@ io.on('connection', socket => {
     socket.emit('userId', socket.id)
 
     socket.on('newUser', userName => {
-        addUser(socket.id, xss(userName))
+        userName = addUser(socket.id, xss(userName))
         socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
 
         io.emit('updateActiveUser', users)
@@ -30,6 +30,7 @@ io.on('connection', socket => {
     socket.on('msgFromUser', data => {
         data["time"] = getTime()
         data['msg'] = xss(data.msg)
+        data['userName'] = getUser(data.id)
         io.emit('msgFromServer', data)
     })
 
@@ -51,6 +52,7 @@ function addUser(id, userName) {
     else {
         users[id] = userName
     }
+    return users[id]
 }
 
 function getUser(id) {
