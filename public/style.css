@@ -64,6 +64,20 @@ html, body {
     border-radius: 4px;
 }
 
+.users-menu {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px 10px 1px 10px;
+    width: 100%;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    height: fit-content;
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 @media (min-width: 640px) {
     .mobile {
         display: none;
@@ -110,15 +124,6 @@ html, body {
         width: fit-content;
         font-size: 14px;
         border: none;
-    }
-
-    .users-menu {
-        background: rgba(0, 0, 0, 0.1);
-        padding: 10px 10px 1px 10px;
-        width: 100%;
-        border-radius: 7px;
-        margin-bottom: 20px;
-        height: fit-content;
     }
 
     .user-tag {
