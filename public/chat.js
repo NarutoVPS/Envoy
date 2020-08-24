@@ -33,7 +33,7 @@ function displayMsg(data) {
         div.classList.add('chatMsg')
         const tempDiv = document.createElement('div')
 
-        div.innerHTML = `<div id="userName">${tempDiv.textContent = data.userName} <div class="time"> ${tempDiv.textContent = Date(data.time).toString().split(' ')[4]}</div></div>
+        div.innerHTML = `<div id="userName">${tempDiv.textContent = data.userName} <div class="time"> ${tempDiv.textContent = data.time.toString()}</div></div>
         <br>
         <div class="message">${tempDiv.textContent = data.msg}</div>`
     
