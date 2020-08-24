@@ -43,7 +43,7 @@ io.on('connection', socket => {
             delete users[room][socket.id]
         }
         catch {
-            
+
         }
         
         io.to(room).emit('msgFromServer', {msg: `${userName} has left the chat.`, userName: "BOT", time: getTime()})
@@ -54,13 +54,18 @@ io.on('connection', socket => {
 users = {"Programming": {69: "BOT"}, "Jokes": {69: "BOT"}, "Random": {69: "BOT"}}
 
 function addUser(id, userName, room) {
-    if (userName.trim() === "BOT" || userName.trim() === "") {
-        users[room][id] = id;
+    try {
+        if (userName.trim() === "BOT" || userName.trim() === "") {
+            users[room][id] = id;
+        }
+        else {
+            users[room][id] = userName
+        }
+        return users[room][id]
     }
-    else {
-        users[room][id] = userName
+    catch {
+        return "🤨"
     }
-    return users[room][id]
 }
 
 function getUser(id, room) {
