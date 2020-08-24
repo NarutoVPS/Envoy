@@ -100,7 +100,7 @@ onlineUser.addEventListener('click', () => {
 })
 
 function checkDetails() {
-    if (typeof(["Programming", "Jokes", "Random"].find(e => e === room)) === "undefined") {
+    if (typeof(["Programming", "Jokes", "Random", "Default"].find(e => e === room)) === "undefined") {
         room = "Random"
         alert("🤬🤬🤬")
     }

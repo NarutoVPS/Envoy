@@ -24,8 +24,8 @@ io.on('connection', socket => {
         socket.to(user.room).broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
 
         io.to(user.room).emit('updateActiveUser', users[user.room])
-        if (Object.keys(users).length === 2) {
-            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat 😉", userName: "BOT", time: getTime()})
+        if (Object.keys(users[user.room]).length === 2) {
+            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat or join another Room 😉", userName: "BOT", time: getTime()})
         }
     })
 
