@@ -4,12 +4,14 @@ const chatBox = document.querySelector('.chatbox')
 const activeUsers = document.querySelector('.activeUsers')
 const activeUsersMobile = document.querySelector('.users-menu')
 const tone = document.getElementById("myAudio"); 
-const {userName, room} = Qs.parse(location.search, {
+var {userName, room} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 })
 var currentUserId = ''
 
 const socket = io()
+
+checkDetails()
 
 socket.emit('newUser', {userName, room})
 
@@ -96,3 +98,10 @@ const userMenu = document.querySelector('.users-menu')
 onlineUser.addEventListener('click', () => {
     userMenu.classList.toggle('visible')
 })
+
+function checkDetails() {
+    if (typeof(["Programming", "Jokes", "Random"].find(e => e === room)) === "undefined") {
+        room = "Random"
+        alert("You didn't select a Room and have been placed in Random Room")
+    }
+}
