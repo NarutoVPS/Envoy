@@ -4,14 +4,16 @@ const chatBox = document.querySelector('.chatbox')
 const activeUsers = document.querySelector('.activeUsers')
 const activeUsersMobile = document.querySelector('.users-menu')
 const tone = document.getElementById("myAudio"); 
-const {userName} = Qs.parse(location.search, {
+var {userName, room} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 })
 var currentUserId = ''
 
 const socket = io()
 
-socket.emit('newUser', userName)
+checkDetails()
+
+socket.emit('newUser', {userName, room})
 
 socket.on('userId', id => {
     currentUserId = id;
@@ -83,7 +85,8 @@ form.addEventListener("submit", e => {
     const data = {
         msg: msg.value,
         userName: userName,
-        id: currentUserId
+        id: currentUserId,
+        room: room
     }
     socket.emit('msgFromUser', data)
     form.reset()
@@ -95,3 +98,10 @@ const userMenu = document.querySelector('.users-menu')
 onlineUser.addEventListener('click', () => {
     userMenu.classList.toggle('visible')
 })
+
+function checkDetails() {
+    if (typeof(["Programming", "Jokes", "Random", "Default"].find(e => e === room)) === "undefined") {
+        room = "Random"
+        alert("🤬🤬🤬")
+    }
+}

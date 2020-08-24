@@ -17,54 +17,65 @@ io.on('connection', socket => {
     socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT", time: getTime()})
     socket.emit('userId', socket.id)
 
-    socket.on('newUser', userName => {
-        userName = addUser(socket.id, xss(userName))
-        socket.broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
+    socket.on('newUser', user => {
+        socket.join(user.room)
 
-        io.emit('updateActiveUser', users)
-        if (Object.keys(users).length === 2) {
-            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat 😉", userName: "BOT", time: getTime()})
+        const userName = addUser(socket.id, xss(user.userName), user.room)
+        socket.to(user.room).broadcast.emit('msgFromServer', {msg: `${userName} has joined the chat.`, userName: "BOT", time: getTime()})
+
+        io.to(user.room).emit('updateActiveUser', users[user.room])
+        if (Object.keys(users[user.room]).length === 2) {
+            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat or join another Room 😉", userName: "BOT", time: getTime()})
         }
     })
 
     socket.on('msgFromUser', data => {
         data["time"] = getTime()
         data['msg'] = xss(data.msg)
-        data['userName'] = getUser(data.id)
-        io.emit('msgFromServer', data)
+        data['userName'] = getUser(data.id, data.room)
+        io.to(data.room).emit('msgFromServer', data)
     })
 
-    socket.on('disconnect', () => {
-        const userName = getUser(socket.id)
-        delete users[socket.id]
+    socket.on('disconnecting', () => {
+        const room = Object.keys(socket.rooms)[1]
+        const userName = getUser(socket.id, room)
+        try {
+            delete users[room][socket.id]
+        }
+        catch {
+
+        }
         
-        io.emit('msgFromServer', {msg: `${userName} has left the chat.`, userName: "BOT", time: getTime()})
-        io.emit('updateActiveUser', users)
+        io.to(room).emit('msgFromServer', {msg: `${userName} has left the chat.`, userName: "BOT", time: getTime()})
+        io.to(room).emit('updateActiveUser', users[room])
     })
 })
 
-users = {69: "BOT"}
+users = {"Default": {69: "BOT"}, "Programming": {69: "BOT"}, "Jokes": {69: "BOT"}, "Random": {69: "BOT"}}
 
-function addUser(id, userName) {
-    if (userName.trim() === "BOT" || userName.trim() === "") {
-        users[id] = id;
-    }
-    else {
-        users[id] = userName
-    }
-    return users[id]
-}
-
-function getUser(id) {
-    return users[id]
-}
-
-function getCurrentUser(id) {
-    for (let each in users) {
-        if (each === id) {
-            return users[id]
+function addUser(id, userName, room) {
+    try {
+        if (userName.trim() === "BOT" || userName.trim() === "") {
+            users[room][id] = id;
         }
+        else {
+            users[room][id] = userName
+        }
+        return users[room][id]
     }
+    catch {
+        return "🤨"
+    }
+}
+
+function getUser(id, room) {
+    try {
+        return users[room][id]
+    }
+    catch {
+        return "🤨"
+    }
+    
 }
 
 function getTime() {
