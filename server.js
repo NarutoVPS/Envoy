@@ -51,7 +51,7 @@ io.on('connection', socket => {
     })
 })
 
-users = {"Programming": {69: "BOT"}, "Jokes": {69: "BOT"}, "Random": {69: "BOT"}}
+users = {"Default": {69: "BOT"}, "Programming": {69: "BOT"}, "Jokes": {69: "BOT"}, "Random": {69: "BOT"}}
 
 function addUser(id, userName, room) {
     try {
