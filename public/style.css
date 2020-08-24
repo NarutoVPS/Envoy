@@ -379,6 +379,18 @@ strong {
     color: rgb(165, 159, 159);
 }
 
+.select {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.select select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    color: rgb(165, 159, 159);;
+    border: none;
+}
+
 #enter-btn {
     width: 100%;
     margin-top: 20px;
