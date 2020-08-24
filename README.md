@@ -9,6 +9,7 @@
 - [Features](#features)
 - [How To Use](#how-to-use)
 - [Contributing](#contributing)
+- [Credits](#credits)
 - [License](#license)
 
 ## Features
@@ -63,9 +64,16 @@ http://localhost:8080/
 
 ---
 
+## Credits
+
+- [Inffinite](https://github.com/Inffinite) -> Major UI Improvements 
+
+---
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
+
 
