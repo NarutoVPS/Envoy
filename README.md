@@ -15,6 +15,7 @@
 ## Features
 
  - Real time messaging
+ - Chat Room Support
  - Shows status of other users (joined, online or left)
  - Super easy to use
  
