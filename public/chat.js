@@ -4,14 +4,14 @@ const chatBox = document.querySelector('.chatbox')
 const activeUsers = document.querySelector('.activeUsers')
 const activeUsersMobile = document.querySelector('.users-menu')
 const tone = document.getElementById("myAudio"); 
-const {userName} = Qs.parse(location.search, {
+const {userName, room} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 })
 var currentUserId = ''
 
 const socket = io()
 
-socket.emit('newUser', userName)
+socket.emit('newUser', {userName, room})
 
 socket.on('userId', id => {
     currentUserId = id;
@@ -83,7 +83,8 @@ form.addEventListener("submit", e => {
     const data = {
         msg: msg.value,
         userName: userName,
-        id: currentUserId
+        id: currentUserId,
+        room: room
     }
     socket.emit('msgFromUser', data)
     form.reset()
