@@ -102,6 +102,6 @@ onlineUser.addEventListener('click', () => {
 function checkDetails() {
     if (typeof(["Programming", "Jokes", "Random"].find(e => e === room)) === "undefined") {
         room = "Random"
-        alert("You didn't select a Room and have been placed in Random Room")
+        alert("🤬🤬🤬")
     }
 }
