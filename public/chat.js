@@ -19,6 +19,18 @@ socket.on('userId', id => {
     currentUserId = id;
 })
 
+form.addEventListener("submit", e => {
+    e.preventDefault()
+    const data = {
+        msg: msg.value,
+        userName: userName,
+        id: currentUserId,
+        room: room
+    }
+    socket.emit('msgFromUser', data)
+    form.reset()
+})
+
 socket.on('msgFromServer', data => {
     displayMsg(data)
     chatBox.scrollTop = chatBox.scrollHeight;
@@ -35,7 +47,7 @@ function displayMsg(data) {
         div.classList.add('chatMsg')
         const tempDiv = document.createElement('div')
 
-        div.innerHTML = `<div id="userName">${tempDiv.textContent = data.userName} <div class="time"> ${tempDiv.textContent = data.time.toString()}</div></div>
+        div.innerHTML = `<div id="userName">${tempDiv.textContent = data.userName} <div class="time"> ${tempDiv.textContent = Date(data.time).toString().split(' ')[4]}</div></div>
         <br>
         <div class="message">${tempDiv.textContent = data.msg}</div>`
     
@@ -79,18 +91,6 @@ function addActiveUser(data) {
 function playAudio() { 
     tone.play(); 
 }
-
-form.addEventListener("submit", e => {
-    e.preventDefault()
-    const data = {
-        msg: msg.value,
-        userName: userName,
-        id: currentUserId,
-        room: room
-    }
-    socket.emit('msgFromUser', data)
-    form.reset()
-})
 
 const onlineUser = document.querySelector('.mobile-users')
 const userMenu = document.querySelector('.users-menu')
