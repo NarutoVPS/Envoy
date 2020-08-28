@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-// const URL = process.env.DATABSEURL || 'mongodb://localhost/envoy'
-const URL = 'mongodb+srv://naruto:narutovps@cluster0.lpxpm.mongodb.net/envoy?retryWrites=true&w=majority'
+const URL = process.env.DATABSEURL || 'mongodb://localhost/envoy'
 
 mongoose.connect(URL, {useNewUrlParser: true});
 
