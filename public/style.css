@@ -13,7 +13,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
+    height: 4vh;
 }
 
 .title {
@@ -33,7 +34,7 @@ html, body {
 }
 
 .main {
-    height: 90vh;
+    height: 95vh;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
