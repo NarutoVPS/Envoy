@@ -29,9 +29,6 @@ function getMsg(room) {
         if (err) {
             console.log("Error Retrieving data")
         }
-        else {
-            return  res
-        }
     }).sort({'updatedAt': 1}).exec((err, res) => {
         if (err) {
             console.log("Error sorting data")
