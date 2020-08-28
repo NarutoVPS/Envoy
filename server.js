@@ -4,6 +4,7 @@ const socket = require('socket.io')
 const PORT = process.env.PORT || 8080
 const xss = require('xss')
 const {users, addUser, getUser, getTime} = require('./user.js')
+const {addMsg, getMsg} = require('./db.js')
 
 // serve the "public" folder to the clients
 app.use(express.static("public"))
@@ -17,9 +18,6 @@ const io = socket(server)
 
 // when a new clients connects
 io.on('connection', socket => {
-    // emit welcome msg to only newly connected client
-    socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT", time: getTime()})
-
     // emit the assigned id to newly connected client
     socket.emit('userId', socket.id)
 
@@ -35,10 +33,20 @@ io.on('connection', socket => {
 
         // emit the updated users list of the respective room to all users of the same room
         io.to(user.room).emit('updateActiveUser', users[user.room])
-        // if the room has only 1 user excluding the BOT, then emit the warning msg to the client in that room
-        if (Object.keys(users[user.room]).length === 2) {
-            socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat or join another Room 😉", userName: "BOT", time: getTime()})
-        }
+
+        // retrieve all previous messages
+        getMsg(user.room).then(res => {
+            // emit all retrieved messages to the client
+            socket.emit('previousMsg', res)
+
+            // emit welcome msg to only newly connected client
+            socket.emit('msgFromServer', {msg: "Welcome to Envoy Messenger!", userName: "BOT", time: getTime()})
+
+            // if the room has only 1 user excluding the BOT, then emit the warning msg to the client in that room
+            if (Object.keys(users[user.room]).length === 2) {
+                socket.emit('msgFromServer', {msg: "Looks like you are alone.<br>Invite some friends to chat or join another Room 😉", userName: "BOT", time: getTime()})
+            }
+        })
     })
 
     // get the msg data sent by the client, add and update the contents and emit the msg to all clients in that room
@@ -47,6 +55,9 @@ io.on('connection', socket => {
         data['msg'] = xss(data.msg) // filter msg text
         data['userName'] = getUser(data.id, data.room) // update the username
         io.to(data.room).emit('msgFromServer', data) // emit the msg to all users of that room
+
+        // add msg record in the database
+        addMsg(data)
     })
 
     // when a client is disconnecting

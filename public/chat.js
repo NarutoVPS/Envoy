@@ -35,6 +35,13 @@ form.addEventListener("submit", e => {
     form.reset()
 })
 
+socket.on('previousMsg', data => {
+    data.forEach(msg => {
+        displayMsg(msg)
+    })
+    chatBox.scrollTop = chatBox.scrollHeight;
+})
+
 // get the msg emitted by the server and display it
 socket.on('msgFromServer', data => {
     displayMsg(data)
