@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/chat', {useNewUrlParser: true});
+const DATABSEURL = process.env.DATABSEURL || 'mongodb://localhost/envoy'
+
+mongoose.connect(DATABSEURL, {useNewUrlParser: true});
 
 const msgSchema = new mongoose.Schema({
     userName: String,
@@ -7,41 +9,41 @@ const msgSchema = new mongoose.Schema({
     id: String,
     msg: String,
     time: String
-  }, { timestamps: true });
+}, { timestamps: true });
 
-  const Msg = mongoose.model('Msg', msgSchema);
+const Msg = mongoose.model('Msg', msgSchema);
 
-  function addMsg(data) {
-      const temp = new Msg(data);
+function addMsg(data) {
+    const temp = new Msg(data);
 
-      temp.save((err) => {
-          if (err) {
-              console.log("Error Saving Msg to Database")
-          }
-      })
-  }
+    temp.save((err) => {
+        if (err) {
+            console.log("Error Saving Msg to Database")
+        }
+    })
+}
 
-  function getMsg(room) {
-      return  new Promise(function (resolve, reject){
-        Msg.find({room}, (err, res) => {
-            if (err) {
-                console.log("Error Retrieving data")
-            }
-            else {
-                return  res
-            }
-        }).sort({'updatedAt': 1}).exec((err, res) => {
-            if (err) {
-                console.log("Error sorting data")
-            }
-            else {
-              resolve(res)
-            }
-        })
-      })
-  }
+function getMsg(room) {
+    return  new Promise(function (resolve, reject){
+    Msg.find({room}, (err, res) => {
+        if (err) {
+            console.log("Error Retrieving data")
+        }
+        else {
+            return  res
+        }
+    }).sort({'updatedAt': 1}).exec((err, res) => {
+        if (err) {
+            console.log("Error sorting data")
+        }
+        else {
+            resolve(res)
+        }
+    })
+    })
+}
 
-  module.exports = {
+module.exports = {
     addMsg,
     getMsg
-  }
+}
