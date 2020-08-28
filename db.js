@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const DATABSEURL = process.env.DATABSEURL || 'mongodb://localhost/envoy'
+const URL = process.env.DATABSEURL || 'mongodb://localhost/envoy'
 
-mongoose.connect(DATABSEURL, {useNewUrlParser: true});
+mongoose.connect(URL, {useNewUrlParser: true});
 
 const msgSchema = new mongoose.Schema({
     userName: String,
