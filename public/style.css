@@ -1,13 +1,7 @@
 html {
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
     height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 html, body {
