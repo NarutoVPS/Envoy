@@ -24,7 +24,7 @@
 
 ## How To Use
 
-> Make sure you have node & mongodb installed in your system.
+> Make sure you have **node** & **mongodb** installed in your system.
 > Clone the repository, open terminal in the diretory and type the following command
 
 ```shell
