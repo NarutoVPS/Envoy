@@ -29,7 +29,7 @@
 
 ```shell
 $ npm install
-$ node server.js
+$ npm run start
 ```
 
 > Now open your broswer and go to the following address
