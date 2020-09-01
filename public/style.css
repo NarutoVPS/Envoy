@@ -188,7 +188,7 @@ html, body {
     flex: 0 0 20%;
     height: 100%;
     max-width: 100%;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 @media (max-width: 640px) {
