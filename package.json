@@ -19,7 +19,7 @@
   "homepage": "https://github.com/NarutoVPS/Envoy#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.10.1",
     "socket.io": "^2.3.0",
     "xss": "^1.0.8"
